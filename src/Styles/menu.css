@@ -1,3 +1,17 @@
-.root{
-    -fx-background-color: pink;
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../Misc/Minecraft-Regular.otf');
+}
+@font-face {
+    font-family: 'Algol';
+    src: url('../Misc/Algol Regular.ttf');
+}
+@font-face {
+    font-family: 'Algol IX';
+    src: url('../Misc/Algol IX Regular.ttf');
+}
+
+.label{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 1.5em;
 }
