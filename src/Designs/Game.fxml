@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GameController">
+<AnchorPane id="AnchorPane" prefHeight="815.0" prefWidth="960.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.GameController">
     <stylesheets>
-        <URL value="@/Styles/game.css"/>
+        <URL value="@/Styles/game.css" />
     </stylesheets>
+   <children>
+      <Pane prefHeight="815.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="bg2_1" fitHeight="504.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/imágenes/fondo1_bk.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bg2_2" fitHeight="504.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/imágenes/fondo1_bk.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bg1_1" fitHeight="815.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/imágenes/fondo1_ft.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bg1_2" fitHeight="815.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/imágenes/fondo1_ft.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
