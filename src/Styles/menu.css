@@ -6,10 +6,11 @@
     -fx-font-family: 'Ancient Modern Tales';
     src: url('../Misc/AncientModernTales.otf');
 }
-.mainFxmlClass {
-    -fx-background-color: black;
-}
 .texto{
     -fx-font-family: 'Ancient Modern Tales';
     -fx-font-size: 6em;
+}
+.playButton{
+    -fx-background-image: url("../Assets/Fondos/parallax (2).png");
+    -fx-background-size: cover;
 }

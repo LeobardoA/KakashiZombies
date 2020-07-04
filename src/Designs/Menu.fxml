@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
    <children>
-      <ImageView fx:id="bkg1" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="bkg2" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="202.0" layoutY="28.0" styleClass="texto" text="Kakashi Zombies" textFill="WHITE" />
+      <ImageView fx:id="bkg1" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg2" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg3" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(4).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg4" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(5).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg5" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg22" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg33" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(4).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg44" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(5).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg55" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(2).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="202.0" layoutY="22.0" styleClass="texto" text="Kakashi Zombies" />
+      <Button layoutX="50.0" layoutY="430.0" mnemonicParsing="false" styleClass="playButton" />
    </children>
 </AnchorPane>
