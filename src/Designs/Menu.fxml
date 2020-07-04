@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
    <children>
@@ -18,7 +19,17 @@
             <Image url="@../Assets/Fondos/parallax%20(3).png" />
          </image>
       </ImageView>
+      <ImageView fx:id="bkg22" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(3).png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="bkg3" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/parallax%20(4).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg33" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/Fondos/parallax%20(4).png" />
          </image>
@@ -28,32 +39,25 @@
             <Image url="@../Assets/Fondos/parallax%20(5).png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bkg5" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Assets/Fondos/parallax%20(2).png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="bkg22" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Assets/Fondos/parallax%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="bkg33" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Assets/Fondos/parallax%20(4).png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="bkg44" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/Fondos/parallax%20(5).png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bkg55" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
-         <image>
-            <Image url="@../Assets/Fondos/parallax%20(2).png" />
-         </image>
-      </ImageView>
       <Label layoutX="202.0" layoutY="22.0" styleClass="texto" text="Kakashi Zombies" />
-      <Button layoutX="50.0" layoutY="430.0" mnemonicParsing="false" styleClass="playButton" />
+      <HBox alignment="CENTER" prefHeight="150.0" spacing="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#play" prefHeight="64.0" prefWidth="128.0" styleClass="playButton" />
+            <Button mnemonicParsing="false" onAction="#options" prefHeight="64.0" prefWidth="128.0" styleClass="optionsButton" />
+            <Button mnemonicParsing="false" onAction="#credits" prefHeight="64.0" prefWidth="128.0" styleClass="creditsButton" />
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="64.0" prefWidth="128.0" styleClass="exitButton" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="-" />
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="X" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

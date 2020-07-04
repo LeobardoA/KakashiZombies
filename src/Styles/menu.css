@@ -11,6 +11,58 @@
     -fx-font-size: 6em;
 }
 .playButton{
-    -fx-background-image: url("../Assets/Fondos/parallax (2).png");
-    -fx-background-size: cover;
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/play.png);
+    -fx-background-size: stretch;
+}
+.playButton:hover{
+    -fx-background-image: url(../Assets/imagenes/playHover.png);
+}
+.playButton:pressed{
+    -fx-background-image: url(../Assets/imagenes/playPressed.png);
+}
+.optionsButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/options.png);
+    -fx-background-size: stretch;
+}
+.optionsButton:hover{
+    -fx-background-image: url(../Assets/imagenes/optionsHover.png);
+}
+.optionsButton:pressed{
+    -fx-background-image: url(../Assets/imagenes/optionsPressed.png);
+}
+.creditsButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/credits.png);
+    -fx-background-size: stretch;
+}
+.creditsButton:hover{
+    -fx-background-image: url(../Assets/imagenes/creditsHover.png);
+}
+.creditsButton:pressed{
+    -fx-background-image: url(../Assets/imagenes/creditsPressed.png);
+}
+.exitButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/exit.png);
+    -fx-background-size: stretch;
+}
+.exitButton:hover{
+    -fx-background-image: url(../Assets/imagenes/exitHover.png);
+}
+.exitButton:pressed{
+    -fx-background-image: url(../Assets/imagenes/exitPressed.png);
+}
+.btnVentana{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 1.7em;
+    -fx-font-family: 'Minecraft';
+}
+.btnVentana:hover{
+    -fx-background-color: #FFFFFF30;
+}
+.btnVentana:pressed{
+    -fx-text-fill: gold;
 }
