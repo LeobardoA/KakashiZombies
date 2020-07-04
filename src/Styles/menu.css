@@ -1,3 +1,11 @@
-.root{
-    -fx-background-color: pink;
+@font-face {
+    -fx-font-family: 'Minecraft';
+    src: url('../Misc/Minecraft-Regular.otf');
+}
+.mainFxmlClass {
+    -fx-background-color: black;
+}
+.texto{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 1.5em;
 }
