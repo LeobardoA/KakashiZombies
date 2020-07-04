@@ -23,6 +23,7 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
+    private int width, height;
     @FXML
     private ImageView bg2_1;
     @FXML
@@ -31,19 +32,23 @@ public class GameController implements Initializable {
     private ImageView bg1_1;
     @FXML
     private ImageView bg1_2;
+    @FXML
+    private ImageView bg3_1;
+    @FXML
+    private ImageView bg3_2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        bg1_2.setLayoutX(960);
-        bg2_2.setLayoutX(960);
+        width = 1200;
+        height = 720;
 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
         time.getKeyFrames().add(
-                new KeyFrame(Duration.millis(5), new EventHandler<ActionEvent>() {
+                new KeyFrame(Duration.millis(8), new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
                         movBg();
@@ -53,24 +58,34 @@ public class GameController implements Initializable {
     }
 
     public void movBg() {
+        //bg 3 in sky
+        bg3_1.setLayoutX(bg3_1.getLayoutX() - 1);
+        bg3_2.setLayoutX(bg3_2.getLayoutX() - 1);
+        if (bg3_1.getLayoutX() <= -width) {
+            bg3_1.setLayoutX(width);
+        }
+        if (bg3_2.getLayoutX() <= -width) {
+            bg3_2.setLayoutX(width);
+        }
+        
         //bg 2 in middle
         bg2_1.setLayoutX(bg2_1.getLayoutX() - 2);
         bg2_2.setLayoutX(bg2_2.getLayoutX() - 2);
-        if (bg2_1.getLayoutX() <= -960) {
-            bg2_1.setLayoutX(960);
+        if (bg2_1.getLayoutX() <= -width) {
+            bg2_1.setLayoutX(width);
         }
-        if (bg2_2.getLayoutX() <= -960) {
-            bg2_2.setLayoutX(960);
+        if (bg2_2.getLayoutX() <= -width) {
+            bg2_2.setLayoutX(width);
         }
 
         //bg 1 in front
-        bg1_1.setLayoutX(bg1_1.getLayoutX() - 5);
-        bg1_2.setLayoutX(bg1_2.getLayoutX() - 5);
-        if (bg1_1.getLayoutX() <= -960) {
-            bg1_1.setLayoutX(960);
+        bg1_1.setLayoutX(bg1_1.getLayoutX() - 8);
+        bg1_2.setLayoutX(bg1_2.getLayoutX() - 8);
+        if (bg1_1.getLayoutX() <= -width) {
+            bg1_1.setLayoutX(width);
         }
-        if (bg1_2.getLayoutX() <= -960) {
-            bg1_2.setLayoutX(960);
+        if (bg1_2.getLayoutX() <= -width) {
+            bg1_2.setLayoutX(width);
         }
 
     }
