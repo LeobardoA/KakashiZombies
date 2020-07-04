@@ -55,8 +55,8 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="-" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="X" />
+            <Button mnemonicParsing="false" onAction="#minimize" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="-" />
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" text="X" />
          </children>
       </HBox>
    </children>

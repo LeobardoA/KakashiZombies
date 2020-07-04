@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.panelVerical{
+    -fx-background-image: url(../Assets/imagenes/panelVertical.png);
+    -fx-background-size: cover;
+}
+.panelHorizontal{
+    -fx-background-image: url(../Assets/imagenes/panelHorizontal.png);
+    -fx-background-size: cover;
+}
+.panelNiveles{
+    -fx-background-image: url(../Assets/imagenes/panelItems.png);
+    -fx-background-size: cover;
+}
