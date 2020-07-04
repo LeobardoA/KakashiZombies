@@ -25,10 +25,12 @@ public class KakashiZombies extends Application{
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+       
     }
     
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

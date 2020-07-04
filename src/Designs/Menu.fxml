@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../Styles/menu.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.MenuController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
    <children>
-      <Label layoutX="112.0" layoutY="129.0" styleClass="texto" text="Label" textFill="WHITE" />
+      <ImageView fx:id="bkg1" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bkg2" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="202.0" layoutY="28.0" styleClass="texto" text="Kakashi Zombies" textFill="WHITE" />
    </children>
 </AnchorPane>

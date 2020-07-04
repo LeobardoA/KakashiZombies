@@ -2,10 +2,14 @@
     -fx-font-family: 'Minecraft';
     src: url('../Misc/Minecraft-Regular.otf');
 }
+@font-face {
+    -fx-font-family: 'Ancient Modern Tales';
+    src: url('../Misc/AncientModernTales.otf');
+}
 .mainFxmlClass {
     -fx-background-color: black;
 }
 .texto{
-    -fx-font-family: 'Minecraft';
-    -fx-font-size: 1.5em;
+    -fx-font-family: 'Ancient Modern Tales';
+    -fx-font-size: 6em;
 }
