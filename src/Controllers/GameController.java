@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author avile
+ * @author Alex
  */
-public class MenuController implements Initializable {
+public class GameController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -22,7 +22,6 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //asdsadsad
     }    
     
 }
