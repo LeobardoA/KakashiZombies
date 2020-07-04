@@ -1,17 +1,11 @@
 @font-face {
-    font-family: 'Minecraft';
+    -fx-font-family: 'Minecraft';
     src: url('../Misc/Minecraft-Regular.otf');
 }
-@font-face {
-    font-family: 'Algol';
-    src: url('../Misc/Algol Regular.ttf');
+.mainFxmlClass {
+    -fx-background-color: black;
 }
-@font-face {
-    font-family: 'Algol IX';
-    src: url('../Misc/Algol IX Regular.ttf');
-}
-
-.label{
+.texto{
     -fx-font-family: 'Minecraft';
     -fx-font-size: 1.5em;
 }
