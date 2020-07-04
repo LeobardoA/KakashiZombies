@@ -58,7 +58,7 @@ public class MenuController implements Initializable {
         Button image = (Button) event.getSource();
         image.getScene().getWindow().hide();
         Stage stage = new Stage(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("/Desings/Game.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Designs/Game.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
