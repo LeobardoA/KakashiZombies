@@ -21,7 +21,7 @@ public class KakashiZombies extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("/Designs/Game.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Designs/Menu.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
