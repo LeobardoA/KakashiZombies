@@ -17,7 +17,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -65,7 +68,15 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void options(ActionEvent event) {
+    private void options(ActionEvent event) throws IOException {
+        Button image = (Button) event.getSource();
+        image.getScene().getWindow().hide();
+        Stage stage = new Stage(StageStyle.TRANSPARENT);
+        Parent root = FXMLLoader.load(getClass().getResource("/Designs/SubMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -130,6 +141,13 @@ public class MenuController implements Initializable {
         }));
         treeFar.setCycleCount(Timeline.INDEFINITE);
         treeFar.play();
+    }
+
+    @FXML
+    private void minimize(ActionEvent event) {
+        Button btn = (Button) event.getSource();
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.setIconified(true);
     }
 
 }
