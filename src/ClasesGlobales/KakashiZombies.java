@@ -23,9 +23,10 @@ public class KakashiZombies extends Application{
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Parent root = FXMLLoader.load(getClass().getResource("/Designs/Menu.fxml"));
         Scene scene = new Scene(root);
+        RecursosGlobales.setScene(scene);
         primaryStage.setScene(scene);
+        RecursosGlobales.setStage(primaryStage);
         primaryStage.show();
-       
     }
     
     public static void main(String[] args) {
