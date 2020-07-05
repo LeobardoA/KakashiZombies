@@ -13,8 +13,18 @@ import javafx.scene.image.ImageView;
  *
  * @author Alex
  */
-public class Personaje extends ImageView {
+public abstract class Personaje extends ImageView {
+    protected int frame;
 
-    public Personaje() {       
+    public Personaje(String url) {
+        frame = 1;
+        changeImage(url);
+    }
+    
+    public abstract void movimiento();
+    
+    protected void changeImage(String url){
+        this.setImage(new Image(getClass().getResource(url).toExternalForm()));
+        
     }
 }

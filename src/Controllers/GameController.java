@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import ClasesGlobales.Kakashi;
 import ClasesGlobales.Personaje;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 /**
@@ -24,7 +26,7 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
-    private int width, height;
+    private int width, height, cicle;
     @FXML
     private ImageView bg2_1;
     @FXML
@@ -37,6 +39,8 @@ public class GameController implements Initializable {
     private ImageView bg3_1;
     @FXML
     private ImageView bg3_2;
+    @FXML
+    private AnchorPane padre;
 
     /**
      * Initializes the controller class.
@@ -45,6 +49,11 @@ public class GameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         width = 1200;
         height = 720;
+        cicle = 0;
+        
+        Kakashi k = new Kakashi();
+        
+        padre.getChildren().add(k);
 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
@@ -53,10 +62,17 @@ public class GameController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         movBg();
+                        if (cicle % 8 == 0) {
+                           k.movimiento(); 
+                        }
+                        
+                        cicle++;
                     }
                 }));
         time.play();
     }
+    
+    
 
     public void movBg() {
         //bg 3 in sky
