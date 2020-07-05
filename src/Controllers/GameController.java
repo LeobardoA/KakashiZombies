@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import ClasesGlobales.Personaje;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;

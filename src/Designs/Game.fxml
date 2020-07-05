@@ -6,17 +6,17 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GameController">
    <children>
-      <ImageView fx:id="bg3_1" fitHeight="532.0" fitWidth="1200.0" layoutY="-150.0" pickOnBounds="true">
+      <ImageView fx:id="bg3_1" fitHeight="532.0" fitWidth="1200.0" layoutY="-150.0" opacity="0.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/Fondos/fondo1_sk.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bg3_2" fitHeight="532.0" fitWidth="1200.0" layoutX="1200.0" layoutY="-150.0" pickOnBounds="true">
+      <ImageView fx:id="bg3_2" fitHeight="532.0" fitWidth="1200.0" layoutX="1200.0" layoutY="-150.0" opacity="0.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/Fondos/fondo1_sk.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bg2_1" fitHeight="532.0" fitWidth="1200.0" layoutY="-150.0" pickOnBounds="true">
+      <ImageView fx:id="bg2_1" fitHeight="532.0" fitWidth="1200.0" layoutY="-150.0" opacity="0.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/Fondos/fondo1_bk.png" />
          </image>
@@ -26,7 +26,7 @@
             <Image url="@../Assets/Fondos/fondo1_bk.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bg1_1" fitHeight="950.0" fitWidth="1200.0" layoutY="-230.0" pickOnBounds="true">
+      <ImageView fx:id="bg1_1" fitHeight="950.0" fitWidth="1200.0" layoutY="-230.0" opacity="0.0" pickOnBounds="true">
          <image>
             <Image url="@../Assets/imagenes/fondo1_ft.png" />
          </image>
