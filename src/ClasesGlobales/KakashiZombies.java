@@ -16,23 +16,22 @@ import javafx.stage.StageStyle;
  *
  * @author avile
  */
-public class KakashiZombies extends Application{
+public class KakashiZombies extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         Parent root = FXMLLoader.load(getClass().getResource("/Designs/Menu.fxml"));
         Scene scene = new Scene(root);
-
-        RecursosGlobales.setScene(scene);
         primaryStage.setScene(scene);
+        RecursosGlobales.setScene(scene);
         RecursosGlobales.setStage(primaryStage);
         primaryStage.show();
     }
-    
+
     public static void main(String[] args) {
         launch(args);
-        
+
     }
-    
+
 }

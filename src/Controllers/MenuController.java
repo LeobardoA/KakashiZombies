@@ -5,9 +5,12 @@
  */
 package Controllers;
 
+import ClasesGlobales.RecursosGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -25,6 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -59,29 +63,18 @@ public class MenuController implements Initializable {
 
     @FXML
     private void play(ActionEvent event) throws IOException {
-        Button image = (Button) event.getSource();
-        image.getScene().getWindow().hide();
-        Stage stage = new Stage(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("/Designs/Game.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        changeScene("/Designs/Game.fxml");
     }
 
     @FXML
     private void options(ActionEvent event) throws IOException {
-        Button image = (Button) event.getSource();
-        image.getScene().getWindow().hide();
-        Stage stage = new Stage(StageStyle.TRANSPARENT);
-        Parent root = FXMLLoader.load(getClass().getResource("/Designs/SubMenu.fxml"));
-        Scene scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
-        stage.setScene(scene);
-        stage.show();
+        changeScene("/Designs/SubMenu.fxml");
+        RecursosGlobales.getScene().setFill(Color.TRANSPARENT);
     }
 
     @FXML
     private void credits(ActionEvent event) {
+        changeScene("/Designs/Credits.fxml");
     }
 
     @FXML
@@ -149,6 +142,17 @@ public class MenuController implements Initializable {
         Button btn = (Button) event.getSource();
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    private void changeScene(String string) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(string));
+            RecursosGlobales.getScene().setRoot(root);
+            RecursosGlobales.getStage().sizeToScene();
+            RecursosGlobales.getStage().centerOnScreen();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "No se encontro la url solicitada");
+        }
     }
 
 }

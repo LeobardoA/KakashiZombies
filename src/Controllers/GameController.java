@@ -6,7 +6,7 @@
 package Controllers;
 
 import ClasesGlobales.Kakashi;
-import ClasesGlobales.Personaje;
+import ClasesGlobales.RecursosGlobales;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -16,7 +16,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -27,7 +26,9 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
+    private Kakashi kakashi;
     private int width, height, cicle;
+    private String tecla;
     @FXML
     private ImageView bg2_1;
     @FXML
@@ -51,32 +52,51 @@ public class GameController implements Initializable {
         width = 1200;
         height = 720;
         cicle = 0;
+        tecla = "N";
 
-        Kakashi k = new Kakashi();
-        keyboard();
-        padre.getChildren().add(k);
+        kakashi = new Kakashi();
+        padre.getChildren().add(kakashi);
         
-        
-
+        //Time 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
-        time.getKeyFrames().add(
-                new KeyFrame(Duration.millis(8), new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        movBg();
-                        if (cicle % 8 == 0) {
-                            k.movimiento();
-                        }
+        time.getKeyFrames().add(new KeyFrame(Duration.millis(8), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                movBg();
+                movKakashi();
+                if (cicle % 8 == 0) {
+                    kakashi.movimiento();
+                }
 
-                        cicle++;
-                    }
-                }));
+                cicle++;
+            }
+        }));
         time.play();
+
+        //keyboard listener
+        RecursosGlobales.getScene().setOnKeyPressed((event) -> {
+            switch (event.getCode().toString()) {
+                case "W":
+                    tecla = "UP";
+                    break;
+                case "S":
+                    tecla = "DOWN";
+                    break;
+            }
+        });
+
     }
 
-    public void keyboard() {
-
+    public void movKakashi() {
+        switch (tecla) {
+            case "UP":
+                kakashi.up();
+                break;
+            case "DOWN":
+                kakashi.down();
+                break;
+        }
     }
 
     public void movBg() {

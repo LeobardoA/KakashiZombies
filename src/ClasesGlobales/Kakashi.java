@@ -14,9 +14,10 @@ public class Kakashi extends Personaje{
     public Kakashi() {
         super("/Assets/imagenes/run (1).png");
         this.setFitWidth(140);
+        this.setFitHeight(150);
         this.setLayoutX(50);
         this.setLayoutY(500);
-        this.setPreserveRatio(true);
+        //this.setPreserveRatio(true);
     }
 
     @Override
@@ -28,5 +29,18 @@ public class Kakashi extends Personaje{
         frame++;
     }
     
+    public void down(){
+        int limitDown = RecursosGlobales.getHeight();
+        if (this.getLayoutY() <= limitDown - this.getFitHeight()) {
+            this.setLayoutY(this.getLayoutY() + 2);
+        }   
+    }
+
+    public void up(){
+        int limitUp = RecursosGlobales.getLimitUp();
+        if (this.getLayoutY() >= limitUp) {
+            this.setLayoutY(this.getLayoutY() - 2);
+        }   
+    }
     
 }
