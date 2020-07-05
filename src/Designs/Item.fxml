@@ -18,7 +18,11 @@
          <children>
             <VBox alignment="CENTER" layoutX="3.0" layoutY="-64.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="logo" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="logo" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/imagenes/stand%20(4).gif" />
+                     </image>
+                  </ImageView>
                   <Label fx:id="nombre" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-family: Minecraft; -fx-font-size: 1.3em;" stylesheets="@../Styles/menu.css" text="Kakashi" textFill="WHITE" />
                </children>
             </VBox>

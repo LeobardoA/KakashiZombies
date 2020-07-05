@@ -6,12 +6,9 @@
 package ClasesGlobales;
 
 import javafx.application.Application;
-import javafx.beans.property.ObjectProperty;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -21,18 +18,14 @@ import javafx.stage.StageStyle;
  */
 public class KakashiZombies extends Application {
 
-    public static ObjectProperty<EventHandler<? super KeyEvent>> listener;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         Parent root = FXMLLoader.load(getClass().getResource("/Designs/Menu.fxml"));
         Scene scene = new Scene(root);
-
-        RecursosGlobales.setScene(scene);
         primaryStage.setScene(scene);
+        RecursosGlobales.setScene(scene);
         RecursosGlobales.setStage(primaryStage);
-        listener = scene.onKeyPressedProperty();
         primaryStage.show();
     }
 

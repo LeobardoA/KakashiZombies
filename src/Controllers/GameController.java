@@ -52,10 +52,6 @@ public class GameController implements Initializable {
         width = 1200;
         height = 720;
         cicle = 0;
-
-        padre.setOnKeyPressed((event) -> {
-            
-        });
         
         Kakashi k = new Kakashi();
         padre.getChildren().add(k);
@@ -75,6 +71,11 @@ public class GameController implements Initializable {
                     }
                 }));
         time.play();
+
+    RecursosGlobales.getScene().setOnKeyPressed((event) -> {
+        System.out.println("Hi");
+    });
+
     }
 
     public void movBg() {
