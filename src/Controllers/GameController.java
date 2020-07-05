@@ -6,7 +6,7 @@
 package Controllers;
 
 import ClasesGlobales.Kakashi;
-import ClasesGlobales.Personaje;
+import ClasesGlobales.KakashiZombies;
 import ClasesGlobales.RecursosGlobales;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,9 +53,12 @@ public class GameController implements Initializable {
         height = 720;
         cicle = 0;
 
+        padre.setOnKeyPressed((event) -> {
+            
+        });
+        
         Kakashi k = new Kakashi();
         padre.getChildren().add(k);
-
 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
@@ -73,7 +76,6 @@ public class GameController implements Initializable {
                 }));
         time.play();
     }
-
 
     public void movBg() {
         //bg 3 in sky

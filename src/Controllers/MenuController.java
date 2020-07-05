@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import ClasesGlobales.RecursosGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,13 +60,13 @@ public class MenuController implements Initializable {
 
     @FXML
     private void play(ActionEvent event) throws IOException {
-        Button image = (Button) event.getSource();
-        image.getScene().getWindow().hide();
         Stage stage = new Stage(StageStyle.UNDECORATED);
         Parent root = FXMLLoader.load(getClass().getResource("/Designs/Game.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        Button btn = (Button) event.getSource();
+        btn.getScene().getWindow().hide();
     }
 
     @FXML
