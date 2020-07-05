@@ -5,8 +5,11 @@
  */
 package ClasesGlobales;
 
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.codegen.CompilerConstants;
 
 /**
  *
@@ -16,6 +19,7 @@ public class RecursosGlobales {
 
     private static Scene scene;
     private static Stage stage;
+    private static String code;
 
     public static Scene getScene() {
         return scene;
@@ -23,6 +27,10 @@ public class RecursosGlobales {
 
     public static void setScene(Scene scene) {
         RecursosGlobales.scene = scene;
+        scene.setOnKeyPressed((event) -> {
+            code = event.getCharacter();
+            System.out.println(code);
+        });
     }
 
     public static Stage getStage() {
@@ -33,4 +41,5 @@ public class RecursosGlobales {
         RecursosGlobales.stage = stage;
     }
 
+    
 }

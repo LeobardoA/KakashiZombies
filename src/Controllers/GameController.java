@@ -7,6 +7,7 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.Personaje;
+import ClasesGlobales.RecursosGlobales;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -16,6 +17,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -50,10 +52,10 @@ public class GameController implements Initializable {
         width = 1200;
         height = 720;
         cicle = 0;
-        
+
         Kakashi k = new Kakashi();
-        
         padre.getChildren().add(k);
+
 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
@@ -63,16 +65,15 @@ public class GameController implements Initializable {
                     public void handle(ActionEvent event) {
                         movBg();
                         if (cicle % 8 == 0) {
-                           k.movimiento(); 
+                            k.movimiento();
                         }
-                        
+
                         cicle++;
                     }
                 }));
         time.play();
     }
-    
-    
+
 
     public void movBg() {
         //bg 3 in sky
@@ -84,7 +85,7 @@ public class GameController implements Initializable {
         if (bg3_2.getLayoutX() <= -width) {
             bg3_2.setLayoutX(width);
         }
-        
+
         //bg 2 in middle
         bg2_1.setLayoutX(bg2_1.getLayoutX() - 2);
         bg2_2.setLayoutX(bg2_2.getLayoutX() - 2);

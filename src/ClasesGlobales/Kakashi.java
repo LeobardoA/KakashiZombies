@@ -26,7 +26,6 @@ public class Kakashi extends Personaje{
         }
         changeImage("/Assets/imagenes/run ("+ frame +").png");
         frame++;
-        System.out.println(frame);
     }
     
     
