@@ -7,7 +7,6 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.Personaje;
-import ClasesGlobales.RecursosGlobales;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -54,8 +53,10 @@ public class GameController implements Initializable {
         cicle = 0;
 
         Kakashi k = new Kakashi();
+        keyboard();
         padre.getChildren().add(k);
-
+        
+        
 
         Timeline time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
@@ -74,6 +75,9 @@ public class GameController implements Initializable {
         time.play();
     }
 
+    public void keyboard() {
+
+    }
 
     public void movBg() {
         //bg 3 in sky
