@@ -7,6 +7,7 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.RecursosGlobales;
+import ClasesGlobales.Zombie;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -28,7 +29,7 @@ public class GameController implements Initializable {
 
     private Kakashi kakashi;
     private int width, height, cicle;
-    private String tecla;
+    private String movimiento;
     @FXML
     private ImageView bg2_1;
     @FXML
@@ -52,10 +53,14 @@ public class GameController implements Initializable {
         width = 1200;
         height = 720;
         cicle = 0;
-        tecla = "N";
+        movimiento = "N";
 
         kakashi = new Kakashi();
         padre.getChildren().add(kakashi);
+
+        Zombie zombie = new Zombie();
+        padre.getChildren().add(zombie);
+        
         
         //Time 
         Timeline time = new Timeline();
@@ -68,20 +73,36 @@ public class GameController implements Initializable {
                 if (cicle % 8 == 0) {
                     kakashi.movimiento();
                 }
+                if (cicle % 10 == 0) {
+                    zombie.movimiento();
+                }
 
                 cicle++;
             }
         }));
         time.play();
+        
 
         //keyboard listener
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    tecla = "UP";
+                    movimiento = "UP";
                     break;
                 case "S":
-                    tecla = "DOWN";
+                    movimiento = "DOWN";
+                    break;
+            }
+        });
+
+        //keyboard listener
+        RecursosGlobales.getScene().setOnKeyReleased((event) -> {
+            switch (event.getCode().toString()) {
+                case "W":
+                    movimiento = "N";
+                    break;
+                case "S":
+                    movimiento = "N";
                     break;
             }
         });
@@ -89,7 +110,7 @@ public class GameController implements Initializable {
     }
 
     public void movKakashi() {
-        switch (tecla) {
+        switch (movimiento) {
             case "UP":
                 kakashi.up();
                 break;

@@ -9,7 +9,7 @@ package ClasesGlobales;
  *
  * @author Alex
  */
-public class Kakashi extends Personaje{
+public class Kakashi extends Personaje {
 
     public Kakashi() {
         super("/Assets/imagenes/run (1).png");
@@ -22,25 +22,33 @@ public class Kakashi extends Personaje{
 
     @Override
     public void movimiento() {
-        if(frame > 8){
+        if (frame > 8) {
             frame = 1;
         }
-        changeImage("/Assets/imagenes/run ("+ frame +").png");
+        changeImage("/Assets/imagenes/run (" + frame + ").png");
         frame++;
     }
-    
-    public void down(){
+
+    public void down() {
         int limitDown = RecursosGlobales.getHeight();
         if (this.getLayoutY() <= limitDown - this.getFitHeight()) {
-            this.setLayoutY(this.getLayoutY() + 2);
-        }   
+            moveY(2);
+        }
     }
 
-    public void up(){
+    public void up() {
         int limitUp = RecursosGlobales.getLimitUp();
         if (this.getLayoutY() >= limitUp) {
-            this.setLayoutY(this.getLayoutY() - 2);
-        }   
+            moveY(-2);
+        }
     }
     
+    public void stop(){
+        
+    }
+
+    public void moveY(int move) {
+        this.setLayoutY(this.getLayoutY() + move);
+    }
+
 }
