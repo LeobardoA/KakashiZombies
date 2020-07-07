@@ -1,0 +1,15 @@
+.pantalla{
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/Item.png);
+    -fx-background-size: cover;
+    -fx-font-family: Minecraft;
+    -fx-font-size: 1.3em;
+}
+.pantalla:pressed{
+    -fx-background-image: url(../Assets/imagenes/ItemPressed.png);
+    -fx-background-size: cover;
+    -fx-text-fill: gold;
+}
+.pantalla:pressed>.nombre {
+    -fx-text-fill: gold;
+}

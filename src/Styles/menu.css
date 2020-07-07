@@ -54,6 +54,17 @@
 .exitButton:pressed{
     -fx-background-image: url(../Assets/imagenes/exitPressed.png);
 }
+.cancelButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url(../Assets/imagenes/cancelButton.png);
+    -fx-background-size: stretch;
+}
+.cancelButton:hover{
+    -fx-background-image: url(../Assets/imagenes/cancelHover.png);
+}
+.cancelButton:pressed{
+    -fx-background-image: url(../Assets/imagenes/cancelPressed.png);
+}
 .btnVentana{
     -fx-background-color: transparent;
     -fx-text-fill: white;

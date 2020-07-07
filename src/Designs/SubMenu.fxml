@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="pantalla" stylesheets="@../Styles/submenu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SubMenuController">
    <children>
-      <AnchorPane fx:id="panelPersonajes" prefWidth="207.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="panelJuego" layoutX="207.0" layoutY="7.0" prefHeight="150.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane fx:id="panelNiveles" layoutX="207.0" layoutY="150.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="207.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="79.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <content>
+                  <VBox fx:id="contenedorItems" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="25.0">
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="207.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox fx:id="modosJuego" alignment="CENTER" fillHeight="false" spacing="25.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="25.0" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="207.0" layoutY="150.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="-22.0" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="scrollvertical" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <content>
+                  <TilePane fx:id="contenedorNiveles" alignment="CENTER" hgap="25.0" vgap="25.0">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </TilePane>
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="266.0" prefHeight="45.0" spacing="25.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#play" prefHeight="48.0" prefWidth="96.0" styleClass="playButton" stylesheets="@../Styles/menu.css" />
+                  <Button mnemonicParsing="false" onAction="#cancel" prefHeight="48.0" prefWidth="96.0" styleClass="cancelButton" stylesheets="@../Styles/menu.css" />
+               </children>
+               <padding>
+                  <Insets right="15.0" />
+               </padding>
+            </HBox>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

@@ -111,8 +111,8 @@ public class GameController implements Initializable {
         }
 
         //bg 2 in middle
-        bg2_1.setLayoutX(bg2_1.getLayoutX() - 2);
-        bg2_2.setLayoutX(bg2_2.getLayoutX() - 2);
+        bg2_1.setLayoutX(bg2_1.getLayoutX() - 1.5);
+        bg2_2.setLayoutX(bg2_2.getLayoutX() - 1.5);
         if (bg2_1.getLayoutX() <= -width) {
             bg2_1.setLayoutX(width);
         }
