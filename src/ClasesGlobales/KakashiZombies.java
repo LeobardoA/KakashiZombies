@@ -27,6 +27,7 @@ public class KakashiZombies extends Application {
         RecursosGlobales.setScene(scene);
         RecursosGlobales.setStage(primaryStage);
         primaryStage.show();
+        
     }
 
     public static void main(String[] args) {
