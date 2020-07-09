@@ -1,32 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ClasesGlobales;
 
-/**
- *
- * @author Alex
- */
-public class Zombie extends Personaje {
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+public class Zombie extends AnchorPane {
+
+    protected final HBox hBox;
+    protected final VBox vBox;
+    protected final ImageView imageView;
 
     public Zombie() {
-        super("/Assets/Enemigo/walk1.png");
-        this.setFitWidth(100);
-        //this.setFitHeight(120);
-        this.setPreserveRatio(true);
-        this.setLayoutX(1000);
-        this.setLayoutY(500);
-    }
 
-    @Override
-    public void movimiento() {
-        if (frame > 16) {
-            frame = 1;
-        }
-        changeImage("/Assets/Enemigo/walk"+ frame +".png");
-        frame++;
-    }
+        hBox = new HBox();
+        vBox = new VBox();
+        imageView = new ImageView();
 
+        setId("AnchorPane");
+        setPrefHeight(100.0);
+        setPrefWidth(100.0);
+
+        AnchorPane.setBottomAnchor(hBox, 0.0);
+        AnchorPane.setLeftAnchor(hBox, 0.0);
+        AnchorPane.setRightAnchor(hBox, 0.0);
+        AnchorPane.setTopAnchor(hBox, 0.0);
+        hBox.setAlignment(javafx.geometry.Pos.CENTER);
+        hBox.setLayoutX(-65.0);
+        hBox.setLayoutY(-7.0);
+
+        HBox.setHgrow(vBox, javafx.scene.layout.Priority.ALWAYS);
+        vBox.setAlignment(javafx.geometry.Pos.CENTER);
+        vBox.setMaxHeight(Double.MAX_VALUE);
+        vBox.setMaxWidth(Double.MAX_VALUE);
+
+        imageView.setFitHeight(75.0);
+        imageView.setFitWidth(75.0);
+        imageView.setPickOnBounds(true);
+        imageView.setPreserveRatio(true);
+        imageView.setImage(new Image(getClass().getResource("../Assets/Enemigo/walk1.png").toExternalForm()));
+
+        vBox.getChildren().add(imageView);
+        hBox.getChildren().add(vBox);
+        getChildren().add(hBox);
+
+    }
 }
