@@ -51,8 +51,12 @@ public class Kakashi extends Personaje {
         }
     }
 
-    public void disparo1() {
-
+    public void attack() {
+        if (frame > 7) {
+            frame = 1;
+        }
+        changeImage("/Assets/imagenes/attack (" + frame + ").png");
+        frame++;
     }
 
     public void moveY(int move) {
