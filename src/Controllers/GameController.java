@@ -86,7 +86,7 @@ public class GameController implements Initializable {
                 if (cicle % 10 == 0) {
                     zombie.movimiento();
                 }
-
+//                kakashi.getBoundsInLocal().intersects(zombie.imageView.getBoundsInLocal());
                 cicle++;
             }
         }));

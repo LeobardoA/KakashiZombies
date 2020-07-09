@@ -11,10 +11,9 @@ public class Zombie extends AnchorPane {
     protected int frame = 1;
     protected final HBox hBox;
     protected final VBox vBox;
-    protected final ImageView imageView;
+    public final ImageView imageView;
 
     public Zombie() {
-
         hBox = new HBox();
         vBox = new VBox();
         imageView = new ImageView();

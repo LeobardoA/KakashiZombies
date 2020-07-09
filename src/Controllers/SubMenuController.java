@@ -30,7 +30,9 @@ import javax.swing.JOptionPane;
  */
 public class SubMenuController implements Initializable {
 
-    public static SimpleIntegerProperty idProperty = new SimpleIntegerProperty();
+    public static SimpleIntegerProperty idPropertyPersonajes = new SimpleIntegerProperty();
+    public static SimpleIntegerProperty idPropertyModos = new SimpleIntegerProperty();
+    public static SimpleIntegerProperty idPropertyNiveles = new SimpleIntegerProperty();
     public static int nAnimates, delay, id = 0;
     public static String nombre, imagen;
     @FXML
@@ -46,7 +48,7 @@ public class SubMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         createCharacter(5, "Kakashi", "stand", contenedorItems, 200, id);
-        createCharacter(8, "Survival", "run", modosJuego, 95, id);
+        createCharacter(8, "Runner", "run", modosJuego, 95, id);
         createCharacter(7, "Platforms", "die", modosJuego, 150, id);
         createCharacter(7, "Zombies", "attack", modosJuego, 110, id);
     }

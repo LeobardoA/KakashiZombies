@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -72,8 +71,8 @@ public class ItemController implements Initializable {
         animation.setCycleCount(Timeline.INDEFINITE);
         nombre.setText(SubMenuController.nombre);
         logo.setImage(new Image(getClass().getResourceAsStream("/Assets/imagenes/" + imagen + " (1).png")));
-        SubMenuController.idProperty.addListener((observable, oldValue, newValue) -> {
-            if (SubMenuController.idProperty.getValue() != id) {
+        SubMenuController.idPropertyModos.addListener((observable, oldValue, newValue) -> {
+            if (SubMenuController.idPropertyModos.getValue() != id) {
                 nombre.setTextFill(Color.WHITE);
             } else {
                 nombre.setTextFill(Color.GOLD);
@@ -104,7 +103,7 @@ public class ItemController implements Initializable {
 
     @FXML
     private void clicked(MouseEvent event) {
-        SubMenuController.idProperty.setValue(id);
+        SubMenuController.idPropertyModos.setValue(id);
     }
 
 }
