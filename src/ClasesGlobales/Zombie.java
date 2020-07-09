@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 
 public class Zombie extends AnchorPane {
 
+    protected int frame = 1;
     protected final HBox hBox;
     protected final VBox vBox;
     protected final ImageView imageView;
@@ -39,11 +40,18 @@ public class Zombie extends AnchorPane {
         imageView.setFitWidth(75.0);
         imageView.setPickOnBounds(true);
         imageView.setPreserveRatio(true);
-        imageView.setImage(new Image(getClass().getResource("../Assets/Enemigo/walk1.png").toExternalForm()));
+        imageView.setImage(new Image(getClass().getResourceAsStream("/Assets/Enemigo/walk1.png")));
 
         vBox.getChildren().add(imageView);
         hBox.getChildren().add(vBox);
         getChildren().add(hBox);
+    }
 
+    public void movimiento() {
+        if (frame > 16) {
+            frame = 1;
+        }
+        imageView.setImage(new Image(getClass().getResourceAsStream("/Assets/Enemigo/walk" + frame + ".png")));
+        frame++;
     }
 }
