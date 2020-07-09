@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,8 @@ import javax.swing.JOptionPane;
  */
 public class SubMenuController implements Initializable {
 
-    public static int nAnimates, delay;
+    public static SimpleIntegerProperty idProperty = new SimpleIntegerProperty();
+    public static int nAnimates, delay, id = 0;
     public static String nombre, imagen;
     @FXML
     private VBox contenedorItems;
@@ -43,20 +45,21 @@ public class SubMenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        createCharacter(5, "Kakashi", "stand", contenedorItems, 200);
-        createCharacter(8, "Survival", "run", modosJuego, 95);
-        createCharacter(7, "Platforms", "die", modosJuego, 150);
-        createCharacter(7, "Zombies", "attack", modosJuego, 110);
+        createCharacter(5, "Kakashi", "stand", contenedorItems, 200, id);
+        createCharacter(8, "Survival", "run", modosJuego, 95, id);
+        createCharacter(7, "Platforms", "die", modosJuego, 150, id);
+        createCharacter(7, "Zombies", "attack", modosJuego, 110, id);
     }
 
-    private void createCharacter(int nA, String name, String url, Pane contenedor, int del) {
+    private void createCharacter(int nA, String name, String url, Pane contenedor, int del, int id) {
         try {
-            delay =del;
+            delay = del;
             nAnimates = nA;
             nombre = name;
             imagen = url;
             Parent item = FXMLLoader.load(getClass().getResource("/Designs/Item.fxml"));
             contenedor.getChildren().add(item);
+            this.id++;
         } catch (IOException ex) {
             Logger.getLogger(SubMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
