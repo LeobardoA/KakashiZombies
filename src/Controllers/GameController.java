@@ -46,6 +46,10 @@ public class GameController implements Initializable {
     private ImageView bg3_2;
     @FXML
     private AnchorPane padre;
+    @FXML
+    private ImageView barraVida;
+    @FXML
+    private ImageView barraNegative;
 
     /**
      * Initializes the controller class.
@@ -72,16 +76,14 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 movBg();
                 movKakashi();
-                
+
                 //kakashi
-                if (cicle % 8 == 0 && !movKakashi.equals("STAND")) {               
+                if (cicle % 8 == 0 && !movKakashi.equals("STAND")) {
                     kakashi.movimiento();
-                }
-                
-                else if(cicle % 16 == 0){
+                } else if (cicle % 16 == 0) {
                     kakashi.stand();
                 }
-                
+
                 //Enemy
                 if (cicle % 10 == 0) {
                     zombie.movimiento();
@@ -102,12 +104,11 @@ public class GameController implements Initializable {
                     movKakashi = "DOWN";
                     break;
                 case "ESCAPE":
-                    
+
                     if (moveBg) {
                         moveBg = false;
                         movKakashi = "STAND";
-                    }
-                    else{
+                    } else {
                         moveBg = true;
                         movKakashi = "N";
                     }

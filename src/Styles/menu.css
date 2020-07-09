@@ -77,3 +77,7 @@
 .btnVentana:pressed{
     -fx-text-fill: gold;
 }
+.titulo{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 2em;
+}
