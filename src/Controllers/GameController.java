@@ -27,9 +27,11 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
+    private Timeline time;
     private Kakashi kakashi;
     private int width, height, cicle;
-    private String movimiento;
+    private String movKakashi;
+    private boolean moveBg;
     @FXML
     private ImageView bg2_1;
     @FXML
@@ -53,26 +55,34 @@ public class GameController implements Initializable {
         width = 1200;
         height = 720;
         cicle = 0;
-        movimiento = "N";
+        movKakashi = "N";
+        moveBg = true;
 
         kakashi = new Kakashi();
         padre.getChildren().add(kakashi);
 
         Zombie zombie = new Zombie();
         padre.getChildren().add(zombie);
-        
-        
+
         //Time 
-        Timeline time = new Timeline();
+        time = new Timeline();
         time.setCycleCount(Timeline.INDEFINITE);
         time.getKeyFrames().add(new KeyFrame(Duration.millis(8), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 movBg();
                 movKakashi();
-                if (cicle % 8 == 0) {
+                
+                //kakashi
+                if (cicle % 8 == 0 && !movKakashi.equals("STAND")) {               
                     kakashi.movimiento();
                 }
+                
+                else if(cicle % 16 == 0){
+                    kakashi.stand();
+                }
+                
+                //Enemy
                 if (cicle % 10 == 0) {
                     zombie.movimiento();
                 }
@@ -81,28 +91,38 @@ public class GameController implements Initializable {
             }
         }));
         time.play();
-        
 
         //keyboard listener
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    movimiento = "UP";
+                    movKakashi = "UP";
                     break;
                 case "S":
-                    movimiento = "DOWN";
+                    movKakashi = "DOWN";
+                    break;
+                case "ESCAPE":
+                    
+                    if (moveBg) {
+                        moveBg = false;
+                        movKakashi = "STAND";
+                    }
+                    else{
+                        moveBg = true;
+                        movKakashi = "N";
+                    }
                     break;
             }
         });
 
-        //keyboard listener
+        //keyboard listener Realeased
         RecursosGlobales.getScene().setOnKeyReleased((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    movimiento = "N";
+                    movKakashi = "N";
                     break;
                 case "S":
-                    movimiento = "N";
+                    movKakashi = "N";
                     break;
             }
         });
@@ -110,7 +130,7 @@ public class GameController implements Initializable {
     }
 
     public void movKakashi() {
-        switch (movimiento) {
+        switch (movKakashi) {
             case "UP":
                 kakashi.up();
                 break;
@@ -122,33 +142,35 @@ public class GameController implements Initializable {
 
     public void movBg() {
         //bg 3 in sky
-        bg3_1.setLayoutX(bg3_1.getLayoutX() - 1);
-        bg3_2.setLayoutX(bg3_2.getLayoutX() - 1);
-        if (bg3_1.getLayoutX() <= -width) {
-            bg3_1.setLayoutX(width);
-        }
-        if (bg3_2.getLayoutX() <= -width) {
-            bg3_2.setLayoutX(width);
-        }
+        if (moveBg) {
+            bg3_1.setLayoutX(bg3_1.getLayoutX() - 1);
+            bg3_2.setLayoutX(bg3_2.getLayoutX() - 1);
+            if (bg3_1.getLayoutX() <= -width) {
+                bg3_1.setLayoutX(width);
+            }
+            if (bg3_2.getLayoutX() <= -width) {
+                bg3_2.setLayoutX(width);
+            }
 
-        //bg 2 in middle
-        bg2_1.setLayoutX(bg2_1.getLayoutX() - 1.5);
-        bg2_2.setLayoutX(bg2_2.getLayoutX() - 1.5);
-        if (bg2_1.getLayoutX() <= -width) {
-            bg2_1.setLayoutX(width);
-        }
-        if (bg2_2.getLayoutX() <= -width) {
-            bg2_2.setLayoutX(width);
-        }
+            //bg 2 in middle
+            bg2_1.setLayoutX(bg2_1.getLayoutX() - 1.5);
+            bg2_2.setLayoutX(bg2_2.getLayoutX() - 1.5);
+            if (bg2_1.getLayoutX() <= -width) {
+                bg2_1.setLayoutX(width);
+            }
+            if (bg2_2.getLayoutX() <= -width) {
+                bg2_2.setLayoutX(width);
+            }
 
-        //bg 1 in front
-        bg1_1.setLayoutX(bg1_1.getLayoutX() - 8);
-        bg1_2.setLayoutX(bg1_2.getLayoutX() - 8);
-        if (bg1_1.getLayoutX() <= -width) {
-            bg1_1.setLayoutX(width);
-        }
-        if (bg1_2.getLayoutX() <= -width) {
-            bg1_2.setLayoutX(width);
+            //bg 1 in front
+            bg1_1.setLayoutX(bg1_1.getLayoutX() - 8);
+            bg1_2.setLayoutX(bg1_2.getLayoutX() - 8);
+            if (bg1_1.getLayoutX() <= -width) {
+                bg1_1.setLayoutX(width);
+            }
+            if (bg1_2.getLayoutX() <= -width) {
+                bg1_2.setLayoutX(width);
+            }
         }
 
     }

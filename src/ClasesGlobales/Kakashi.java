@@ -29,6 +29,14 @@ public class Kakashi extends Personaje {
         frame++;
     }
 
+    public void stand() {
+        if (frame > 5) {
+            frame = 3;
+        }
+        changeImage("/Assets/imagenes/stand (" + frame + ").png");
+        frame++;
+    }
+
     public void down() {
         int limitDown = RecursosGlobales.getHeight();
         if (this.getLayoutY() <= limitDown - this.getFitHeight()) {
@@ -42,9 +50,9 @@ public class Kakashi extends Personaje {
             moveY(-2);
         }
     }
-    
-    public void stop(){
-        
+
+    public void disparo1() {
+
     }
 
     public void moveY(int move) {

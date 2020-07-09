@@ -29,12 +29,12 @@
       </ImageView>
       <ImageView fx:id="bg1_1" fitHeight="950.0" fitWidth="1200.0" layoutY="-230.0" pickOnBounds="true">
          <image>
-            <Image url="@../Assets/imagenes/fondo1_ft.png" />
+            <Image url="@../Assets/Fondos/fondo1_ft.png" />
          </image>
       </ImageView>
       <ImageView fx:id="bg1_2" fitHeight="950.0" fitWidth="1200.0" layoutX="1200.0" layoutY="-230.0" pickOnBounds="true">
          <image>
-            <Image url="@../Assets/imagenes/fondo1_ft.png" />
+            <Image url="@../Assets/Fondos/fondo1_ft.png" />
          </image>
       </ImageView>
    </children>

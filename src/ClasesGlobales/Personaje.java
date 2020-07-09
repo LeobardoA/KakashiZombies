@@ -24,7 +24,10 @@ public abstract class Personaje extends ImageView {
     public abstract void movimiento();
     
     protected void changeImage(String url){
-        this.setImage(new Image(getClass().getResource(url).toExternalForm()));
-        
+        this.setImage(new Image(getClass().getResource(url).toExternalForm()));  
+    }
+    
+    public void resetFrame(){
+        frame = 1;
     }
 }
