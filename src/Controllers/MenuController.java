@@ -145,6 +145,7 @@ public class MenuController implements Initializable {
             RecursosGlobales.getStage().centerOnScreen();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "No se encontro la url solicitada");
+            ex.printStackTrace();
         }
     }
 

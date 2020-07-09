@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -29,7 +30,7 @@ public class ItemController implements Initializable {
     private String titulo, imagen;
     private Timeline animation;
     private KeyFrame todo;
-    private int nAnimates, i = 1, delay;
+    private int nFrames, i = 1, delay, id;
     @FXML
     private AnchorPane item;
     @FXML
@@ -42,20 +43,22 @@ public class ItemController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nAnimates = SubMenuController.nAnimates;
+        id = SubMenuController.id;
+        nFrames = SubMenuController.nAnimates;
         titulo = SubMenuController.nombre;
         imagen = SubMenuController.imagen;
         delay = SubMenuController.delay;
         animation = new Timeline();
+        System.out.println(titulo + " con el id:" + id);
         todo = new KeyFrame(Duration.millis(delay), (event) -> {
             if (!imagen.equals("stand")) {
                 logo.setImage(new Image(getClass().getResourceAsStream("/Assets/imagenes/" + imagen + " (" + i + ").png")));
-                if (i >= nAnimates) {
+                if (i >= nFrames) {
                     i = 1;
                 } else {
                     i++;
                 }
-            }else{
+            } else {
                 logo.setImage(new Image(getClass().getResourceAsStream("/Assets/imagenes/" + imagen + " (" + i + ").png")));
                 if (i >= 5) {
                     i = 3;
@@ -69,6 +72,13 @@ public class ItemController implements Initializable {
         animation.setCycleCount(Timeline.INDEFINITE);
         nombre.setText(SubMenuController.nombre);
         logo.setImage(new Image(getClass().getResourceAsStream("/Assets/imagenes/" + imagen + " (1).png")));
+        SubMenuController.idProperty.addListener((observable, oldValue, newValue) -> {
+            if (SubMenuController.idProperty.getValue() != id) {
+                nombre.setTextFill(Color.WHITE);
+            } else {
+                nombre.setTextFill(Color.GOLD);
+            }
+        });
     }
 
     @FXML
@@ -90,6 +100,11 @@ public class ItemController implements Initializable {
     @FXML
     private void released(MouseEvent event) {
         nombre.setTextFill(Color.WHITE);
+    }
+
+    @FXML
+    private void clicked(MouseEvent event) {
+        SubMenuController.idProperty.setValue(id);
     }
 
 }
