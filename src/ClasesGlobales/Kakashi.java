@@ -5,14 +5,37 @@
  */
 package ClasesGlobales;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Alex
  */
 public class Kakashi extends Personaje {
 
+    private final Image[] run = {
+        new Image(getClass().getResource("/Assets/imagenes/run (1).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (2).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (3).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (4).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (5).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (6).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/run (7).png").toExternalForm())
+    };
+
+    private final Image[] attack = {
+        new Image(getClass().getResource("/Assets/imagenes/attack (1).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (2).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (3).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (4).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (5).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (6).png").toExternalForm()),
+        new Image(getClass().getResource("/Assets/imagenes/attack (7).png").toExternalForm())
+    };
+
     public Kakashi() {
         super("/Assets/imagenes/run (1).png");
+
         this.setFitWidth(140);
         this.setFitHeight(150);
         this.setLayoutX(50);
@@ -22,10 +45,10 @@ public class Kakashi extends Personaje {
 
     @Override
     public void movimiento() {
-        if (frame > 8) {
-            frame = 1;
+        if (frame > 6) {
+            frame = 0;
         }
-        changeImage("/Assets/imagenes/run (" + frame + ").png");
+        setImage(run[frame]);
         frame++;
     }
 
@@ -52,11 +75,15 @@ public class Kakashi extends Personaje {
     }
 
     public void attack() {
-        if (frame > 7) {
-            frame = 1;
+        if (frame < 6) {
+            setImage(attack[frame]);
+            frame++;
         }
-        changeImage("/Assets/imagenes/attack (" + frame + ").png");
-        frame++;
+        else{
+            frame = 0;
+            this.movimiento();
+        }
+
     }
 
     public void moveY(int move) {

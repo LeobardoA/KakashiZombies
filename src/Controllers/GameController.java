@@ -52,48 +52,15 @@ public class GameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        width = 1200;
-        height = 720;
-        cicle = 0;
-        movKakashi = "N";
-        moveBg = true;
+        inicializarElementos();
+        eventos();
+        cicloJuego();
+    }
 
-        kakashi = new Kakashi();
-        padre.getChildren().add(kakashi);
-
-        Zombie zombie = new Zombie();
-        padre.getChildren().add(zombie);
-
-        //Time 
-        time = new Timeline();
-        time.setCycleCount(Timeline.INDEFINITE);
-        time.getKeyFrames().add(new KeyFrame(Duration.millis(8), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                movBg();
-                movKakashi();
-                
-                //kakashi
-                if (cicle % 8 == 0 && !movKakashi.equals("STAND")) {               
-                    kakashi.movimiento();
-                }
-                
-                else if(cicle % 16 == 0){
-                    kakashi.stand();
-                }
-                
-                //Enemy
-                if (cicle % 10 == 0) {
-                    zombie.movimiento();
-                }
-//                kakashi.getBoundsInLocal().intersects(zombie.imageView.getBoundsInLocal());
-                cicle++;
-            }
-        }));
-        time.play();
-
-        //keyboard listener
+    public void eventos() {
+        //keyboard listener Pressed
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
+            System.out.println(event.getCode().toString());
             switch (event.getCode().toString()) {
                 case "W":
                     movKakashi = "UP";
@@ -101,20 +68,20 @@ public class GameController implements Initializable {
                 case "S":
                     movKakashi = "DOWN";
                     break;
+                case "SPACE":
+
+                    break;
                 case "ESCAPE":
-                    
                     if (moveBg) {
                         moveBg = false;
                         movKakashi = "STAND";
-                    }
-                    else{
+                    } else {
                         moveBg = true;
                         movKakashi = "N";
                     }
                     break;
             }
         });
-
         //keyboard listener Realeased
         RecursosGlobales.getScene().setOnKeyReleased((event) -> {
             switch (event.getCode().toString()) {
@@ -126,10 +93,50 @@ public class GameController implements Initializable {
                     break;
             }
         });
-
     }
 
-    public void movKakashi() {
+    public void inicializarElementos() {
+        width = 1200;
+        height = 720;
+        cicle = 0;
+        movKakashi = "N";
+        moveBg = true;
+
+        kakashi = new Kakashi();
+        padre.getChildren().add(kakashi);
+        Zombie zombie = new Zombie();
+        padre.getChildren().add(zombie);
+    }
+
+    //tiempo juego
+    public void cicloJuego() {
+        time = new Timeline();
+        time.setCycleCount(Timeline.INDEFINITE);
+        time.getKeyFrames().add(new KeyFrame(Duration.millis(16), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                moverFondo();
+                movimientoKakashi();
+                //kakashi
+                if (cicle % 4 == 0 && !movKakashi.equals("STAND")) {
+                    kakashi.movimiento();
+                } else if (cicle % 4 == 0) {
+                    kakashi.attack();
+                }
+
+                //Enemy
+                if (cicle % 10 == 0) {
+
+                }
+//                kakashi.getBoundsInLocal().intersects(zombie.imageView.getBoundsInLocal());
+                cicle++;
+            }
+        }));
+        time.play();
+    }
+
+    public void movimientoKakashi() {
+
         switch (movKakashi) {
             case "UP":
                 kakashi.up();
@@ -140,7 +147,7 @@ public class GameController implements Initializable {
         }
     }
 
-    public void movBg() {
+    public void moverFondo() {
         //bg 3 in sky
         if (moveBg) {
             bg3_1.setLayoutX(bg3_1.getLayoutX() - 1);

@@ -5,7 +5,6 @@
  */
 package ClasesGlobales;
 
-import java.io.File;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,7 +16,7 @@ public abstract class Personaje extends ImageView {
     protected int frame;
 
     public Personaje(String url) {
-        frame = 1;
+        frame = 0;
         changeImage(url);
     }
     
@@ -26,8 +25,9 @@ public abstract class Personaje extends ImageView {
     protected void changeImage(String url){
         this.setImage(new Image(getClass().getResource(url).toExternalForm()));  
     }
+
     
     public void resetFrame(){
-        frame = 1;
+        frame = 0;
     }
 }
