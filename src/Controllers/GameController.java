@@ -46,6 +46,10 @@ public class GameController implements Initializable {
     private ImageView bg3_2;
     @FXML
     private AnchorPane padre;
+    @FXML
+    private ImageView barraVida;
+    @FXML
+    private ImageView barraNegative;
 
     /**
      * Initializes the controller class.
@@ -60,7 +64,6 @@ public class GameController implements Initializable {
     public void eventos() {
         //keyboard listener Pressed
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
-            System.out.println(event.getCode().toString());
             switch (event.getCode().toString()) {
                 case "W":
                     movKakashi = "UP";
