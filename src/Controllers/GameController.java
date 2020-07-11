@@ -28,6 +28,7 @@ import javafx.util.Duration;
  * @author Alex
  */
 public class GameController implements Initializable {
+
     private Sprite sprite;
     private Timeline time;
     private Kakashi kakashi;
@@ -61,7 +62,7 @@ public class GameController implements Initializable {
         cicloJuego();
         double tamanio = 800;
         Rectangle2D view = new Rectangle2D(0, 0, tamanio, 192);
-        barraVida.setFitWidth((tamanio/1072)*300);
+        barraVida.setFitWidth((tamanio / 1072) * 300);
         barraVida.setViewport(view);
     }
 
@@ -70,30 +71,37 @@ public class GameController implements Initializable {
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    key = "UP";
+                    if (kakashi.isCambiarAnimacion()) {
+                        key = "UP";
+                    }
                     break;
                 case "S":
-                    key = "DOWN";
+                    if (kakashi.isCambiarAnimacion()) {
+                        key = "DOWN";
+                    }
                     break;
                 case "SPACE":
-                    kakashi.resetFrame();
-                    kakashi.setMovimientoActual(Kakashi.ATTACK);
-
+                    if (kakashi.isCambiarAnimacion()) {
+                        kakashi.resetFrame();
+                        kakashi.setMovimientoActual(Kakashi.ATTACK);
+                    }
                     break;
                 case "ESCAPE":
-
                     if (moveBg) {
-                        moveBg = false;
-                        kakashi.resetFrame();
-                        kakashi.setMovimientoActual(Kakashi.STAND);
-                        kakashi.setCambiarAnimacion(false);
+                        if (kakashi.isCambiarAnimacion()) {
+                            moveBg = false;
+                            kakashi.resetFrame();
+                            kakashi.setMovimientoActual(Kakashi.STAND);
+                            kakashi.setCambiarAnimacion(false);
+                        }
                     } else {
                         moveBg = true;
                         kakashi.setCambiarAnimacion(true);
                         kakashi.resetFrame();
                         kakashi.setMovimientoActual(Kakashi.RUN);
-                        
+
                     }
+
                     break;
             }
         });
@@ -150,7 +158,7 @@ public class GameController implements Initializable {
         if (ciclo % 5 == 0) {
             kakashi.movimiento();
         } else if (ciclo % 4 == 0) {
-            
+
         }
     }
 
