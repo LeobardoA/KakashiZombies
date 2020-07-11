@@ -29,8 +29,8 @@ public class GameController implements Initializable {
 
     private Timeline time;
     private Kakashi kakashi;
-    private int width, height, cicle;
-    private String movKakashi;
+    private int width, height, ciclo;
+    private String key;
     private boolean moveBg;
     @FXML
     private ImageView bg2_1;
@@ -66,21 +66,29 @@ public class GameController implements Initializable {
         RecursosGlobales.getScene().setOnKeyPressed((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    movKakashi = "UP";
+                    key = "UP";
                     break;
                 case "S":
-                    movKakashi = "DOWN";
+                    key = "DOWN";
                     break;
                 case "SPACE":
+                    kakashi.resetFrame();
+                    kakashi.setMovimientoActual(Kakashi.ATTACK);
 
                     break;
                 case "ESCAPE":
+
                     if (moveBg) {
                         moveBg = false;
-                        movKakashi = "STAND";
+                        kakashi.resetFrame();
+                        kakashi.setMovimientoActual(Kakashi.STAND);
+                        kakashi.setCambiarAnimacion(false);
                     } else {
                         moveBg = true;
-                        movKakashi = "N";
+                        kakashi.setCambiarAnimacion(true);
+                        kakashi.resetFrame();
+                        kakashi.setMovimientoActual(Kakashi.RUN);
+                        
                     }
                     break;
             }
@@ -89,10 +97,10 @@ public class GameController implements Initializable {
         RecursosGlobales.getScene().setOnKeyReleased((event) -> {
             switch (event.getCode().toString()) {
                 case "W":
-                    movKakashi = "N";
+                    key = "N";
                     break;
                 case "S":
-                    movKakashi = "N";
+                    key = "N";
                     break;
             }
         });
@@ -101,11 +109,12 @@ public class GameController implements Initializable {
     public void inicializarElementos() {
         width = 1200;
         height = 720;
-        cicle = 0;
-        movKakashi = "N";
+        ciclo = 0;
+        key = "N";
         moveBg = true;
 
         kakashi = new Kakashi();
+        kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi);
         Zombie zombie = new Zombie();
         padre.getChildren().add(zombie);
@@ -121,32 +130,23 @@ public class GameController implements Initializable {
                 moverFondo();
                 movimientoKakashi();
                 //kakashi
-                if (cicle % 4 == 0 && !movKakashi.equals("STAND")) {
-                    kakashi.movimiento();
-                } else if (cicle % 4 == 0) {
-                    kakashi.attack();
-                }
-
-                //Enemy
-                if (cicle % 10 == 0) {
-
-                }
 //                kakashi.getBoundsInLocal().intersects(zombie.imageView.getBoundsInLocal());
-                cicle++;
+                ciclo++;
             }
         }));
         time.play();
     }
 
     public void movimientoKakashi() {
-
-        switch (movKakashi) {
-            case "UP":
-                kakashi.up();
-                break;
-            case "DOWN":
-                kakashi.down();
-                break;
+        if (key.equals("UP")) {
+            kakashi.up();
+        } else if (key.equals("DOWN")) {
+            kakashi.down();
+        }
+        if (ciclo % 5 == 0) {
+            kakashi.movimiento();
+        } else if (ciclo % 4 == 0) {
+            
         }
     }
 
