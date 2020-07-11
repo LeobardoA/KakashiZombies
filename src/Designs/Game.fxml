@@ -3,7 +3,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,12 +41,12 @@
       </ImageView>
       <AnchorPane prefHeight="100.0" prefWidth="350.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="barraVida" fitHeight="50.0" fitWidth="300.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
+            <ImageView fitHeight="50.0" fitWidth="300.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
                <image>
                   <Image url="@../Assets/imagenes/barraJugador.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="barraVida1" fitHeight="50.0" fitWidth="300.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
+            <ImageView fx:id="barraVida" fitHeight="50.0" fitWidth="300.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
                <image>
                   <Image url="@../Assets/imagenes/barraVida.png" />
                </image>
@@ -58,7 +57,6 @@
          </children>
       </AnchorPane>
       <Label styleClass="titulo" stylesheets="@../Styles/menu.css" text="Kakashi Hatake" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="15.0" />
-      <ProgressBar layoutX="175.0" layoutY="194.0" prefWidth="200.0" progress="0.51" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

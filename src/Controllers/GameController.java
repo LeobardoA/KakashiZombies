@@ -7,6 +7,7 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.RecursosGlobales;
+import ClasesGlobales.Sprite;
 import ClasesGlobales.Zombie;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +27,7 @@ import javafx.util.Duration;
  * @author Alex
  */
 public class GameController implements Initializable {
-
+    private Sprite sprite;
     private Timeline time;
     private Kakashi kakashi;
     private int width, height, ciclo;
@@ -48,8 +49,6 @@ public class GameController implements Initializable {
     private AnchorPane padre;
     @FXML
     private ImageView barraVida;
-    @FXML
-    private ImageView barraNegative;
 
     /**
      * Initializes the controller class.
@@ -59,6 +58,8 @@ public class GameController implements Initializable {
         inicializarElementos();
         eventos();
         cicloJuego();
+        sprite = new Sprite(barraVida, 100, Duration.millis(50));
+        sprite.playContinuously();
     }
 
     public void eventos() {
