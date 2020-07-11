@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -58,8 +59,10 @@ public class GameController implements Initializable {
         inicializarElementos();
         eventos();
         cicloJuego();
-        sprite = new Sprite(barraVida, 100, Duration.millis(50));
-        sprite.playContinuously();
+        double tamanio = 800;
+        Rectangle2D view = new Rectangle2D(0, 0, tamanio, 192);
+        barraVida.setFitWidth((tamanio/1072)*300);
+        barraVida.setViewport(view);
     }
 
     public void eventos() {
