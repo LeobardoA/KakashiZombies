@@ -17,15 +17,14 @@ public abstract class Personaje extends ImageView {
 
     public Personaje(String url) {
         frame = 0;
-        changeImage(url);
+        this.setImage(new Image(getClass().getResource(url).toExternalForm()));  
     }
     
     public abstract void movimiento();
     
-    protected void changeImage(String url){
-        this.setImage(new Image(getClass().getResource(url).toExternalForm()));  
+    public Image getImagen(String url){
+        return new Image(getClass().getResource(url).toExternalForm());
     }
-
     
     public void resetFrame(){
         frame = 0;
