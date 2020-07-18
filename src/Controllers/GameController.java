@@ -29,11 +29,12 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
-    private Sprite sprite;
     private Timeline time;
     private Kakashi kakashi;
+    Zombie zombie;
     private int width, height, ciclo;
     private String key;
+    private double vida;
     private boolean moveBg;
     @FXML
     private ImageView bg2_1;
@@ -60,10 +61,7 @@ public class GameController implements Initializable {
         inicializarElementos();
         eventos();
         cicloJuego();
-        double tamanio = 800;
-        Rectangle2D view = new Rectangle2D(0, 0, tamanio, 192);
-        barraVida.setFitWidth((tamanio / 1072) * 300);
-        barraVida.setViewport(view);
+        setBarraVida(.3);
     }
 
     public void eventos() {
@@ -124,11 +122,13 @@ public class GameController implements Initializable {
         ciclo = 0;
         key = "N";
         moveBg = true;
-
+        vida = 1;
         kakashi = new Kakashi();
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi);
-        Zombie zombie = new Zombie();
+        
+        
+        zombie = new Zombie();
         padre.getChildren().add(zombie);
     }
 
@@ -141,8 +141,10 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 moverFondo();
                 movimientoKakashi();
+                zombie.movimiento();
                 //kakashi
-//                kakashi.getBoundsInLocal().intersects(zombie.imageView.getBoundsInLocal());
+                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getLayoutX(), zombie.getLayoutY(), zombie.getWidth(), zombie.getHeight()));
+                
                 ciclo++;
             }
         }));
@@ -160,6 +162,19 @@ public class GameController implements Initializable {
         } else if (ciclo % 4 == 0) {
 
         }
+    }
+
+    public void setBarraVida(double porcentaje) {
+        if (porcentaje <= 0) {
+            porcentaje = .1;
+        }
+        if (porcentaje > 1) {
+            porcentaje = 1;
+        }
+        double vida = 1072 * porcentaje;
+        Rectangle2D view = new Rectangle2D(0, 0, vida, 192);
+        barraVida.setFitWidth((vida / 1072) * 300);
+        barraVida.setViewport(view);
     }
 
     public void moverFondo() {

@@ -21,6 +21,8 @@ public class Zombie extends AnchorPane {
         setId("AnchorPane");
         setPrefHeight(100.0);
         setPrefWidth(100.0);
+        setLayoutX(100);
+        setLayoutY(500);
 
         AnchorPane.setBottomAnchor(hBox, 0.0);
         AnchorPane.setLeftAnchor(hBox, 0.0);
@@ -35,10 +37,9 @@ public class Zombie extends AnchorPane {
         vBox.setMaxHeight(Double.MAX_VALUE);
         vBox.setMaxWidth(Double.MAX_VALUE);
 
-        imageView.setFitHeight(75.0);
-        imageView.setFitWidth(75.0);
+        imageView.setFitHeight(110.0);
+        imageView.setFitWidth(95.0);
         imageView.setPickOnBounds(true);
-        imageView.setPreserveRatio(true);
         imageView.setImage(new Image(getClass().getResourceAsStream("/Assets/Enemigo/walk1.png")));
 
         vBox.getChildren().add(imageView);
