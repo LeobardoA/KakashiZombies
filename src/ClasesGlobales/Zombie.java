@@ -22,7 +22,7 @@ public class Zombie extends AnchorPane {
         setPrefHeight(100.0);
         setPrefWidth(100.0);
         setLayoutX(100);
-        setLayoutY(500);
+        setLayoutY(550);
 
         AnchorPane.setBottomAnchor(hBox, 0.0);
         AnchorPane.setLeftAnchor(hBox, 0.0);

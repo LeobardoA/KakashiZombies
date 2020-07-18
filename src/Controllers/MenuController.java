@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import ClasesGlobales.PlayerLife;
 import ClasesGlobales.RecursosGlobales;
 import java.io.IOException;
 import java.net.URL;
@@ -51,7 +52,7 @@ public class MenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        backgroundAnimation();
+        backgroundAnimation(); 
     }
 
     @FXML
@@ -62,7 +63,6 @@ public class MenuController implements Initializable {
     @FXML
     private void options(ActionEvent event) throws IOException {
         changeScene("/Designs/SubMenu.fxml");
-        RecursosGlobales.getScene().setFill(Color.TRANSPARENT);
     }
 
     @FXML

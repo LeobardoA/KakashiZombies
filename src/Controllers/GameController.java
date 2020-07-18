@@ -7,7 +7,6 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.RecursosGlobales;
-import ClasesGlobales.Sprite;
 import ClasesGlobales.Zombie;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -62,6 +61,7 @@ public class GameController implements Initializable {
         eventos();
         cicloJuego();
         setBarraVida(.3);
+        setVida(800);
     }
 
     public void eventos() {
@@ -122,14 +122,18 @@ public class GameController implements Initializable {
         ciclo = 0;
         key = "N";
         moveBg = true;
-        vida = 1;
-        kakashi = new Kakashi();
+
+
+        kakashi = new Kakashi(1000, 1000);
+
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi);
+
         
         
         zombie = new Zombie();
         padre.getChildren().add(zombie);
+
     }
 
     //tiempo juego
@@ -141,9 +145,9 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 moverFondo();
                 movimientoKakashi();
-                zombie.movimiento();
+                
                 //kakashi
-                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getLayoutX(), zombie.getLayoutY(), zombie.getWidth(), zombie.getHeight()));
+                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getBoundsInLocal()));
                 
                 ciclo++;
             }
@@ -210,6 +214,13 @@ public class GameController implements Initializable {
             }
         }
 
+    }
+
+    private void setVida(int    i) {
+        
+        Rectangle2D view = new Rectangle2D(0, 0, i, 192);
+        barraVida.setFitWidth((i / 1072) * 300);
+        barraVida.setViewport(view);
     }
 
 }

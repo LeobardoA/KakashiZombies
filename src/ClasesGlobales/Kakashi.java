@@ -25,8 +25,8 @@ public class Kakashi extends Personaje {
     private int movimientoActual;
     private boolean cambiarAnimacion;
 
-    public Kakashi() {
-        super("/Assets/imagenes/run (1).png");
+    public Kakashi(double maxLife, double actualLife) {
+        super("/Assets/imagenes/run (1).png", maxLife, actualLife);
         animaciones = new HashMap<>();
         cargarImagenes();
         cambiarAnimacion = true;
@@ -111,6 +111,5 @@ public class Kakashi extends Personaje {
         }
 
     }
-    
-    
+
 }
