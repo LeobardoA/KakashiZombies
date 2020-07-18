@@ -7,8 +7,6 @@ package Controllers;
 
 import ClasesGlobales.Kakashi;
 import ClasesGlobales.RecursosGlobales;
-import ClasesGlobales.Sprite;
-import ClasesGlobales.Zombie;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -29,7 +27,6 @@ import javafx.util.Duration;
  */
 public class GameController implements Initializable {
 
-    private Sprite sprite;
     private Timeline time;
     private Kakashi kakashi;
     private int width, height, ciclo;
@@ -60,10 +57,7 @@ public class GameController implements Initializable {
         inicializarElementos();
         eventos();
         cicloJuego();
-        double tamanio = 800;
-        Rectangle2D view = new Rectangle2D(0, 0, tamanio, 192);
-        barraVida.setFitWidth((tamanio / 1072) * 300);
-        barraVida.setViewport(view);
+        setVida(800);
     }
 
     public void eventos() {
@@ -125,11 +119,9 @@ public class GameController implements Initializable {
         key = "N";
         moveBg = true;
 
-        kakashi = new Kakashi();
+        kakashi = new Kakashi(1000, 1000);
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi);
-        Zombie zombie = new Zombie();
-        padre.getChildren().add(zombie);
     }
 
     //tiempo juego
@@ -195,6 +187,13 @@ public class GameController implements Initializable {
             }
         }
 
+    }
+
+    private void setVida(int    i) {
+        
+        Rectangle2D view = new Rectangle2D(0, 0, i, 192);
+        barraVida.setFitWidth((i / 1072) * 300);
+        barraVida.setViewport(view);
     }
 
 }
