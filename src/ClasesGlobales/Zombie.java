@@ -69,6 +69,7 @@ public class Zombie extends Personaje {
         return anchorPane;
     }
     
+    
         private void cargarImagenes() {
         for (int i = 1; i <= 16; i++) {
             animaciones.put("WALK" + i, getImagen("/Assets/Enemigo/walk" + i + ".png"));
