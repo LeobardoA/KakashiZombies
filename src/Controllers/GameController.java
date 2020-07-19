@@ -123,14 +123,11 @@ public class GameController implements Initializable {
         key = "N";
         moveBg = true;
 
-
         kakashi = new Kakashi(1000, 1000);
 
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi);
 
-        
-        
         zombie = new Zombie();
         padre.getChildren().add(zombie);
 
@@ -145,10 +142,14 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 moverFondo();
                 movimientoKakashi();
-                
-                //kakashi
-                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getBoundsInLocal()));
-                
+
+                if (kakashi.localToScene(kakashi.getBoundsInLocal()).intersects(zombie.imageView.localToScene(zombie.getBoundsInLocal()))) {
+                    System.out.println("true");
+                } else {
+                    System.out.println("false");
+                }
+//                System.out.println("Kakashi: " + kakashi.getBoundsInParent().toString());
+//                System.out.println("Zombie: " + zombie.getBoundsInParent().toString());
                 ciclo++;
             }
         }));
@@ -216,8 +217,8 @@ public class GameController implements Initializable {
 
     }
 
-    private void setVida(int    i) {
-        
+    private void setVida(int i) {
+
         Rectangle2D view = new Rectangle2D(0, 0, i, 192);
         barraVida.setFitWidth((i / 1072) * 300);
         barraVida.setViewport(view);
