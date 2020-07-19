@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,24 +37,6 @@
             <Image url="@../Assets/Fondos/fondo1_ft.png" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="100.0" prefWidth="350.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="50.0" fitWidth="300.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
-               <image>
-                  <Image url="@../Assets/imagenes/barraJugador.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="barraVida" fitHeight="50.0" fitWidth="300.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
-               <image>
-                  <Image url="@../Assets/imagenes/barraVida.png" />
-               </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <Label styleClass="titulo" stylesheets="@../Styles/menu.css" text="Kakashi Hatake" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="15.0" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

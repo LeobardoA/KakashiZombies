@@ -5,7 +5,6 @@
  */
 package ClasesGlobales;
 
-import java.util.HashMap;
 import javafx.scene.image.Image;
 
 /**

@@ -6,8 +6,10 @@
 package Controllers;
 
 import ClasesGlobales.Kakashi;
+import ClasesGlobales.PlayerLife;
 import ClasesGlobales.RecursosGlobales;
 import ClasesGlobales.Zombie;
+import java.awt.Point;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -16,7 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
+import javafx.geometry.Dimension2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -30,7 +32,7 @@ public class GameController implements Initializable {
 
     private Timeline time;
     private Kakashi kakashi;
-    Zombie zombie;
+    private Zombie zombie;
     private int width, height, ciclo;
     private String key;
     private double vida;
@@ -49,8 +51,6 @@ public class GameController implements Initializable {
     private ImageView bg3_2;
     @FXML
     private AnchorPane padre;
-    @FXML
-    private ImageView barraVida;
 
     /**
      * Initializes the controller class.
@@ -60,8 +60,6 @@ public class GameController implements Initializable {
         inicializarElementos();
         eventos();
         cicloJuego();
-        setBarraVida(.3);
-        setVida(800);
     }
 
     public void eventos() {
@@ -124,6 +122,8 @@ public class GameController implements Initializable {
         moveBg = true;
 
         kakashi = new Kakashi(1000, 1000);
+        PlayerLife barraVida = new PlayerLife(new Dimension2D(300, 50), new Point(0, 0), kakashi);
+        padre.getChildren().add(barraVida);
 
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi.getImageView());
@@ -144,10 +144,9 @@ public class GameController implements Initializable {
                 movimientoKakashi();
                 zombie.movimiento();
                 zombie.walking();
-                System.out.println(kakashi.isColition(zombie));
-                
-                //kakashi
-//                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getBoundsInLocal()));
+                if (kakashi.isColition(zombie)) {
+                    kakashi.setVida(kakashi.getVida() - 5);
+                }
                 
                 ciclo++;
             }
@@ -166,19 +165,6 @@ public class GameController implements Initializable {
         } else if (ciclo % 4 == 0) {
 
         }
-    }
-
-    public void setBarraVida(double porcentaje) {
-        if (porcentaje <= 0) {
-            porcentaje = .1;
-        }
-        if (porcentaje > 1) {
-            porcentaje = 1;
-        }
-        double vida = 1072 * porcentaje;
-        Rectangle2D view = new Rectangle2D(0, 0, vida, 192);
-        barraVida.setFitWidth((vida / 1072) * 300);
-        barraVida.setViewport(view);
     }
 
     public void moverFondo() {
@@ -214,13 +200,6 @@ public class GameController implements Initializable {
             }
         }
 
-    }
-
-    private void setVida(int i) {
-
-        Rectangle2D view = new Rectangle2D(0, 0, i, 192);
-        barraVida.setFitWidth((i / 1072) * 300);
-        barraVida.setViewport(view);
     }
 
 }
