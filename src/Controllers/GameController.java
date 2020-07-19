@@ -127,12 +127,12 @@ public class GameController implements Initializable {
         kakashi = new Kakashi(1000, 1000);
 
         kakashi.setMovimientoActual(Kakashi.RUN);
-        padre.getChildren().add(kakashi);
+        padre.getChildren().add(kakashi.getImageView());
 
         
         
         zombie = new Zombie();
-        padre.getChildren().add(zombie);
+        padre.getChildren().add(zombie.getAnchorPane());
 
     }
 
@@ -145,9 +145,12 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 moverFondo();
                 movimientoKakashi();
+                zombie.movimiento();
+                zombie.walking();
+                System.out.println(kakashi.isColition(zombie));
                 
                 //kakashi
-                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getBoundsInLocal()));
+//                System.out.println(kakashi.getBoundsInLocal().intersects(zombie.getBoundsInLocal()));
                 
                 ciclo++;
             }

@@ -6,23 +6,28 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class Zombie extends AnchorPane {
+public class Zombie extends Personaje {
 
     protected int frame = 1;
     protected final HBox hBox;
     protected final VBox vBox;
-    public final ImageView imageView;
+    private AnchorPane anchorPane;
 
     public Zombie() {
+        super("/Assets/Enemigo/walk1.png");
+        cargarImagenes();
         hBox = new HBox();
         vBox = new VBox();
-        imageView = new ImageView();
+        anchorPane = new AnchorPane();
+        
+        x = 1000;
+        y = 550;
+        largo = 95;
+        alto = 110;
 
-        setId("AnchorPane");
-        setPrefHeight(100.0);
-        setPrefWidth(100.0);
-        setLayoutX(100);
-        setLayoutY(550);
+        anchorPane.setId("AnchorPane");
+        anchorPane.setLayoutX(x);
+        anchorPane.setLayoutY(y);
 
         AnchorPane.setBottomAnchor(hBox, 0.0);
         AnchorPane.setLeftAnchor(hBox, 0.0);
@@ -37,21 +42,36 @@ public class Zombie extends AnchorPane {
         vBox.setMaxHeight(Double.MAX_VALUE);
         vBox.setMaxWidth(Double.MAX_VALUE);
 
-        imageView.setFitHeight(110.0);
-        imageView.setFitWidth(95.0);
+        imageView.setFitHeight(alto);
+        imageView.setFitWidth(largo);
         imageView.setPickOnBounds(true);
-        imageView.setImage(new Image(getClass().getResourceAsStream("/Assets/Enemigo/walk1.png")));
+        imageView.setImage(animaciones.get("WALK1"));
 
         vBox.getChildren().add(imageView);
         hBox.getChildren().add(vBox);
-        getChildren().add(hBox);
+        anchorPane.getChildren().add(hBox);
     }
 
     public void movimiento() {
         if (frame > 16) {
             frame = 1;
         }
-        imageView.setImage(new Image(getClass().getResourceAsStream("/Assets/Enemigo/walk" + frame + ".png")));
+        imageView.setImage(animaciones.get("WALK" + frame));
         frame++;
+    }
+    
+    public void walking(){
+        x -= 2;
+        anchorPane.setLayoutX(x);
+    }
+
+    public AnchorPane getAnchorPane() {
+        return anchorPane;
+    }
+    
+        private void cargarImagenes() {
+        for (int i = 1; i <= 16; i++) {
+            animaciones.put("WALK" + i, getImagen("/Assets/Enemigo/walk" + i + ".png"));
+        }
     }
 }

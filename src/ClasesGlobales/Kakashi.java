@@ -19,7 +19,7 @@ public class Kakashi extends Personaje {
     public final static int ATTACK = 2;
     public final static int STAND = 3;
 
-    private HashMap<String, Image> animaciones;
+    
 
     private Image imagenActual;
     private int movimientoActual;
@@ -27,14 +27,17 @@ public class Kakashi extends Personaje {
 
     public Kakashi(double maxLife, double actualLife) {
         super("/Assets/imagenes/run (1).png", maxLife, actualLife);
-        animaciones = new HashMap<>();
         cargarImagenes();
         cambiarAnimacion = true;
-        this.setFitWidth(140);
-        this.setFitHeight(150);
-        this.setLayoutX(50);
-        this.setLayoutY(500);
-        //this.setPreserveRatio(true);
+        x = 50;
+        y = 500;
+        largo = 140;
+        alto = 150;
+        imageView.setFitWidth(largo);
+        imageView.setFitHeight(alto);
+        imageView.setLayoutX(x);
+        imageView.setLayoutY(y);
+        imageView.setPreserveRatio(true);
     }
 
     @Override
@@ -61,26 +64,27 @@ public class Kakashi extends Personaje {
                 imagenActual = animaciones.get("STAND" + frame);
                 break;
         }
-        setImage(imagenActual);
+        imageView.setImage(imagenActual);
         frame++;
     }
 
     public void down() {
         int limitDown = RecursosGlobales.getHeight();
-        if (this.getLayoutY() <= limitDown - this.getFitHeight()) {
+        if (imageView.getLayoutY() <= limitDown - imageView.getFitHeight()) {
             moveY(2);
         }
     }
 
     public void up() {
         int limitUp = RecursosGlobales.getLimitUp();
-        if (this.getLayoutY() >= limitUp) {
+        if (imageView.getLayoutY() >= limitUp) {
             moveY(-2);
         }
     }
 
     public void moveY(int move) {
-        this.setLayoutY(this.getLayoutY() + move);
+        y += move; 
+        imageView.setLayoutY(y);
     }
 
     public int getMovimientoActual() {
@@ -109,7 +113,6 @@ public class Kakashi extends Personaje {
         for (int i = 1; i <= 5; i++) {
             animaciones.put("STAND" + i, getImagen("/Assets/imagenes/stand (" + i + ").png"));
         }
-
     }
 
 }
