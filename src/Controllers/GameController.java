@@ -123,14 +123,11 @@ public class GameController implements Initializable {
         key = "N";
         moveBg = true;
 
-
         kakashi = new Kakashi(1000, 1000);
 
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi.getImageView());
 
-        
-        
         zombie = new Zombie();
         padre.getChildren().add(zombie.getAnchorPane());
 
@@ -206,7 +203,7 @@ public class GameController implements Initializable {
                 bg2_2.setLayoutX(width);
             }
 
-            //bg 1 in front
+            //bg 1 in front  
             bg1_1.setLayoutX(bg1_1.getLayoutX() - 8);
             bg1_2.setLayoutX(bg1_2.getLayoutX() - 8);
             if (bg1_1.getLayoutX() <= -width) {
@@ -219,8 +216,8 @@ public class GameController implements Initializable {
 
     }
 
-    private void setVida(int    i) {
-        
+    private void setVida(int i) {
+
         Rectangle2D view = new Rectangle2D(0, 0, i, 192);
         barraVida.setFitWidth((i / 1072) * 300);
         barraVida.setViewport(view);
