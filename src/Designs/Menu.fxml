@@ -18,12 +18,12 @@
       </ImageView>
       <ImageView fx:id="bkg2" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@../Assets/Fondos/parallax%20(3).png" />
+            <Image url="@../Assets/Fondos/parallax%20(2).png" />
          </image>
       </ImageView>
       <ImageView fx:id="bkg22" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
          <image>
-            <Image url="@../Assets/Fondos/parallax%20(3).png" />
+            <Image url="@../Assets/Fondos/parallax%20(2).png" />
          </image>
       </ImageView>
       <ImageView fx:id="bkg3" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">

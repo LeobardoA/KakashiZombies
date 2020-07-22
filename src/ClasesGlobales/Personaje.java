@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
  *
  * @author Alex
  */
-public abstract class Personaje{
+public abstract class Personaje {
 
     protected int frame;
     protected SimpleDoubleProperty vida;
@@ -27,14 +27,14 @@ public abstract class Personaje{
     protected int alto;
 
     public Personaje(String url, double lifeMax, double actualLife) {
-          imageView = new ImageView();
-          vida = new SimpleDoubleProperty(actualLife);
-          frame = 0;
-          imageView.setImage(new Image(getClass().getResource(url).toExternalForm()));
-          animaciones = new HashMap<>();
+        imageView = new ImageView();
+        vida = new SimpleDoubleProperty(actualLife);
+        frame = 0;
+        imageView.setImage(new Image(getClass().getResource(url).toExternalForm()));
+        animaciones = new HashMap<>();
     }
-    
-    public Personaje(String url){
+
+    public Personaje(String url) {
         imageView = new ImageView();
         imageView.setImage(new Image(getClass().getResource(url).toExternalForm()));
         animaciones = new HashMap<>();
@@ -78,19 +78,18 @@ public abstract class Personaje{
         return largo;
     }
 
-
-    public SimpleDoubleProperty getVidaProperty(){
+    public SimpleDoubleProperty getVidaProperty() {
         return vida;
     }
-    
-    public boolean isColition(Personaje p2, int margenX, int margenY){
-        
+
+    public boolean isColition(Personaje p2, int margenX, int margenY) {
+
         int[] x1 = {this.x + margenX, this.x + this.largo - margenX};
         int[] y1 = {this.y + margenY, this.y + this.alto - margenY};
 
-        int[] x2 = {p2.x, p2.x+p2.largo};
-        int[] y2 = {p2.y, p2.y+p2.alto};
-        
+        int[] x2 = {p2.x, p2.x + p2.largo};
+        int[] y2 = {p2.y, p2.y + p2.alto};
+
         //p1
         for (int ix = 0; ix < 2; ix++) {
             for (int iy = 0; iy < 2; iy++) {
@@ -119,5 +118,5 @@ public abstract class Personaje{
 
         return false;
     }
-    
+
 }

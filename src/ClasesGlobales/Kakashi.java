@@ -82,7 +82,7 @@ public class Kakashi extends Personaje {
     }
 
     public void moveY(int move) {
-        y += move; 
+        y += move;
         imageView.setLayoutY(y);
     }
 
