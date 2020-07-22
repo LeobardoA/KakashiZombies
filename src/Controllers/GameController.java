@@ -144,7 +144,7 @@ public class GameController implements Initializable {
                 movimientoKakashi();
                 zombie.movimiento();
                 zombie.walking();
-                if (kakashi.isColition(zombie)) {
+                if (kakashi.isColition(zombie,0,90)) {
                     kakashi.setVida(kakashi.getVida() - 5);
                 }
                 
