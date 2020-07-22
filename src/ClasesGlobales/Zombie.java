@@ -13,15 +13,15 @@ public class Zombie extends Personaje {
     protected final VBox vBox;
     private AnchorPane anchorPane;
 
-    public Zombie() {
+    public Zombie(int x, int y) {
         super("/Assets/Enemigo/walk1.png");
         cargarImagenes();
         hBox = new HBox();
         vBox = new VBox();
         anchorPane = new AnchorPane();
         
-        x = 1000;
-        y = 550;
+        this.x = x;
+        this.y = y;
         largo = 95;
         alto = 110;
 

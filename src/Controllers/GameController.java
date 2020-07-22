@@ -11,6 +11,8 @@ import ClasesGlobales.RecursosGlobales;
 import ClasesGlobales.Zombie;
 import java.awt.Point;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -32,7 +34,7 @@ public class GameController implements Initializable {
 
     private Timeline time;
     private Kakashi kakashi;
-    private Zombie zombie;
+    private ArrayList<Zombie> zombies;
     private int width, height, ciclo;
     private String key;
     private double vida;
@@ -128,8 +130,8 @@ public class GameController implements Initializable {
         kakashi.setMovimientoActual(Kakashi.RUN);
         padre.getChildren().add(kakashi.getImageView());
 
-        zombie = new Zombie();
-        padre.getChildren().add(zombie.getAnchorPane());
+
+        zombies = new ArrayList<>();
 
     }
 
@@ -142,12 +144,15 @@ public class GameController implements Initializable {
             public void handle(ActionEvent event) {
                 moverFondo();
                 movimientoKakashi();
-                zombie.movimiento();
-                zombie.walking();
-                if (kakashi.isColition(zombie,0,90)) {
-                    kakashi.setVida(kakashi.getVida() - 5);
+                gestionarZombies();
+
+                if (ciclo % 250 == 0) {
+                    crearZombie();
                 }
-                
+//                if (kakashi.isColition(zombie, 0, 90)) {
+//                    kakashi.setVida(kakashi.getVida() - 5);
+//                }
+
                 ciclo++;
             }
         }));
@@ -199,7 +204,34 @@ public class GameController implements Initializable {
                 bg1_2.setLayoutX(width);
             }
         }
+    }
+    
+    public void gestionarZombies(){
+        int i = 0;
+        for (Zombie zombie: zombies) {
+            if (ciclo % 3 == 0) {
+                zombie.movimiento();
+            }
+            zombie.walking();
+            if (kakashi.isColition(zombie, 10, 90)) {
+                kakashi.setVida(kakashi.getVida() - 5);
+            }
+//            if (zombie.getX() < - zombie.getLargo()) {
+//                zombies.remove(i);
+//            }
+//            i++;
+        }
+    }
 
+    
+    
+    public void crearZombie(){
+        Random r = new Random();
+        int l = RecursosGlobales.getHeight() - RecursosGlobales.getLimitUp() - 120;
+        int y = RecursosGlobales.getLimitUp() + r.nextInt(l);
+        zombies.add(new Zombie(1300,y));
+        zombies.get(zombies.size()-1).movimiento();
+        padre.getChildren().add(zombies.get(zombies.size()-1).getAnchorPane());
     }
 
 }

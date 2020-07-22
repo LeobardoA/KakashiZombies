@@ -70,6 +70,15 @@ public abstract class Personaje{
         this.vidaMax = vidaMax;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getLargo() {
+        return largo;
+    }
+
+
     public SimpleDoubleProperty getVidaProperty(){
         return vida;
     }
