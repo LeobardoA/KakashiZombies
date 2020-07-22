@@ -74,10 +74,10 @@ public abstract class Personaje{
         return vida;
     }
     
-    public boolean isColition(Personaje p2){
+    public boolean isColition(Personaje p2, int margenX, int margenY){
         
-        int[] x1 = {this.x, this.x+this.largo};
-        int[] y1 = {this.y, this.y+this.alto};
+        int[] x1 = {this.x + margenX, this.x + this.largo - margenX};
+        int[] y1 = {this.y + margenY, this.y + this.alto - margenY};
 
         int[] x2 = {p2.x, p2.x+p2.largo};
         int[] y2 = {p2.y, p2.y+p2.alto};
