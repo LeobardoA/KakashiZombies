@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreditsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.CreditsController">
     <stylesheets>
-        <URL value="@/Styles/credits.css"/>
+        <URL value="@/Styles/credits.css" />
     </stylesheets>
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/sky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg0" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg0Right" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg1" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/glacial_mountains.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg1Right" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/glacial_mountains.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg2" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg2Right" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg3" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg3Right" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg4" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bkg4Right" fitHeight="500.0" fitWidth="800.0" layoutX="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Assets/Fondos/clouds_mg_1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="324.0" layoutY="17.0" style="-fx-font-size: 3em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Creditos">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="232.0" layoutY="98.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Front-End y Back End:">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="145.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Jonathan Leobardo Aviles Martinez">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="184.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Alejandro Ayala Martinez">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="283.0" layoutY="243.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Designs &amp; Music">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="282.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Jonathan Leobardo Aviles Martinez">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="321.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Alejandro Ayala Martinez">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="360.0" style="-fx-font-size: 2.5em;" styleClass="titulo" stylesheets="@../Styles/menu.css" text="Vicente Nitti :">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="317.0" layoutY="362.0" text="http://creativecommons.org/licenses/by/4.0/" textFill="#000001">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#minimize" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" stylesheets="@../Styles/menu.css" text="-" />
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="40.0" styleClass="btnVentana" stylesheets="@../Styles/menu.css" text="X" />
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
